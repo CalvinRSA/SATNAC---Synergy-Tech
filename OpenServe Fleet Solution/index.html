@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Openserve EVD-CVM: NEV Fleet Transition</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://cdn.cookielaw.org/logos/776a69b4-d25f-4315-b017-d3fff1a5b93f/7f2634a3-cce9-4d9b-a63a-65b5a34f07f8/19a0b8c8-6469-405e-b82d-68fe44fd3543/openserve-logo-colour.png" alt="Openserve Logo">
+            </div>
+            <h1>Openserve EVD-CVM: Powering a Sustainable Fleet</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="/pages/dashboard.html">Dashboard</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to EVD-CVM</h1>
+            <p>Your AI-powered geospatial tool for transitioning Openserve's fleet to Battery Electric Vehicles (BEVs). Plan sustainable deployments, optimize charging infrastructure, and ensure uninterrupted service across South Africa.</p>
+            <button id="openPopup" class="cta-button">Explore the Dashboard</button>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Openserve</h2>
+        <p>Openserve, a Telkom subsidiary, is South Africa's leading telecom infrastructure provider, connecting over 1 million homes with its fibre network. With a fleet of 1,000-2,000 vehicles, we're driving sustainability through NEV adoption.</p>
+        <div class="grid">
+            <div class="card">
+                <img src="https://www.datocms-assets.com/992/1675282585-ev-for-reveal-gtm-launh-blog-adobestock_510413844.jpeg" alt="BEV Fleet">
+                <p>Transforming our fleet for a greener future.</p>
+            </div>
+            <div class="card">
+                <img src="https://www.telkom.co.za/content/dam/images/telkom/business/Fibre/Fibre-Image.jpg" alt="Fibre Network">
+                <p>Powering connectivity across all nine provinces.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>The Challenge: Limited EV Infrastructure</h2>
+        <p>With over 500 charging stations in 2025, South Africa's EV network is growing but uneven. Urban areas thrive, while rural "charging deserts" risk service disruptions for Openserve's fleet.</p>
+        <div class="grid">
+            <div class="card">
+                <img src="https://eu-images.contentstack.com/v3/assets/blta47798dd33129a0c/bltc3b3a07ef19531ce/66fcd019f2c9845b1b977df9/7530.jpg" alt="Eskom Charger">
+                <p>Eskom's pilot stations signal progress.</p>
+            </div>
+            <div class="card">
+                <img src="https://www.esi-africa.com/wp-content/uploads/2020/12/electric-car-at-charging-station.-City-of-Cape-Town.jpg" alt="Cape Town Charger">
+                <p>Urban hubs like Cape Town lead in infrastructure.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>References: Openserve Website, Telkom Reports 2025, GSMA Green Networks, SATNAC Challenge Brief.</p>
+        <p>&copy; 2025 Openserve EVD-CVM. All rights reserved.</p>
+    </footer>
+
+    <!-- Popup Modal -->
+    <div id="authPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>Access Dashboard</h2>
+            <p>Please enter your Staff No. and Password</p>
+            <form id="authForm">
+                <label for="staffNo">Staff No.:</label>
+                <input type="text" id="staffNo" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                
+                <div class="popup-buttons">
+                    <button type="submit" class="cta-button">Login</button>
+                    <button type="button" id="closePopup" class="cta-button cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/scripts/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVD-CVM Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="https://cdn.cookielaw.org/logos/776a69b4-d25f-4315-b017-d3fff1a5b93f/7f2634a3-cce9-4d9b-a63a-65b5a34f07f8/19a0b8c8-6469-405e-b82d-68fe44fd3543/openserve-logo-colour.png" alt="Openserve Logo">
+            <div class="welcome-user" id="welcomeMessage">Welcome, User</div>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#" class="active" data-section="dashboard">Dashboard</a></li>
+            <li><a href="#" data-section="search">Search EV Areas</a></li>
+            <li><a href="#" data-section="available">Available Areas</a></li>
+            <li><a href="#" data-section="chargers">Charger Stats</a></li>
+            <li><a href="#" data-section="insights">AI Insights</a></li>
+            <li><a href="#" data-section="logout">Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="feed-header">
+            <h1>EVD-CVM Dashboard</h1>
+        </div>
+
+        <!-- DASHBOARD SECTION -->
+        <div id="dashboard" class="section-content active">
+            <section class="section feed-section">
+                <h2>Our Solution: AI-Powered Geospatial Analysis</h2>
+                <p>The EVD-CVM web app integrates Python, GPS APIs (Open Charge Map), and OpenAI to classify regions for BEV deployment, recommend charger placements, and visualize plans via interactive GIS maps.</p>
+                <div class="grid">
+                    <div class="card">
+                        <img src="https://mybroadband.co.za/news/wp-content/uploads/2023/04/Screenshot-2023-04-25-101233.png" alt="Charging Map">
+                        <p>Interactive maps for strategic planning.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section feed-section">
+                <h2>Interactive Dashboard</h2>
+                <p>Upload facility GPS data, analyze routes, and visualize BEV viability. Integration with real-time charger data and AI insights ensures precise planning.</p>
+                <iframe 
+                    class="map-embed"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=16.5,-34.8,32.9,-22.1&layer=mapnik&marker=-28.5,24.7"
+                    allowfullscreen>
+                </iframe>
+                <p style="text-align: center; font-style: italic; color: #666; margin-top: 10px;">
+                    Live view of South Africa’s EV infrastructure network
+                </p>
+            </section>
+
+            <div class="feed-section" style="text-align: center; padding: 40px 20px;">
+                <p style="font-size: 18px; margin-bottom: 20px;">
+                    Ready to explore tools? Use the menu above.
+                </p>
+                <button class="cta-button" id="startAnalysisBtn">
+                    Start EV Deployment Analysis
+                </button>
+            </div>
+        </div>
+
+        <!-- SEARCH EV AREAS -->
+        <div id="search" class="section-content">
+            <div class="action-area">
+                <h2>Search Areas for EV Deployment</h2>
+                <p>Select your search criteria below to analyze BEV deployment potential.</p>
+
+                <form id="searchForm" class="search-form">
+                    <div class="form-group">
+                        <label><strong>Search By:</strong></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="searchType" value="province" checked> Province</label>
+                            <label><input type="radio" name="searchType" value="city"> City</label>
+                            <label><input type="radio" name="searchType" value="overall"> Overall Search</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="province">Province:</label>
+                        <select id="province" class="form-input">
+                            <option value="">Select Province</option>
+                            <option>Gauteng</option>
+                            <option>Western Cape</option>
+                            <option>KwaZulu-Natal</option>
+                            <option>Eastern Cape</option>
+                            <option>Free State</option>
+                            <option>Limpopo</option>
+                            <option>Mpumalanga</option>
+                            <option>Northern Cape</option>
+                            <option>North West</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" class="form-input" placeholder="e.g., Johannesburg">
+                    </div>
+
+                    <div class="form-group">
+                        <label><input type="checkbox" id="useAI"> Include AI Data in Search</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><input type="checkbox" id="stationAvail"> Search by Station Availability</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><input type="checkbox" id="useRoutes"> Use Routes Data</label>
+                        <input type="file" id="routeFile" class="form-input" accept=".csv,.geojson" style="display:none;">
+                    </div>
+
+                    <button type="submit" class="cta-button">Run Search</button>
+                </form>
+
+                <div id="searchResults" class="map-placeholder" style="margin-top: 30px; display: none;">
+                    Search Results Will Appear Here
+                </div>
+            </div>
+        </div>
+
+        <!-- OTHER SECTIONS (Cleaned) -->
+        <div class="action-area">
+            <div id="available" class="section-content">
+                <h2>Areas Available for Deployment</h2>
+                <p>Pre-scored regions with high BEV viability.</p>
+                <div class="map-placeholder">Deployment Heatmap (Live)</div>
+            </div>
+
+            <div id="chargers" class="section-content">
+                <h2>EV Charging Stations Stats</h2>
+                <p>Real-time charger data across South Africa.</p>
+                <div class="map-placeholder">Charging Network Dashboard</div>
+            </div>
+
+            <div id="insights" class="section-content">
+                <h2>AI-Powered Insights</h2>
+                <p>Optimal charger placement and cost projections.</p>
+                <div class="map-placeholder">AI Recommendation Engine</div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="/scripts/dashboard.js"></script>
+</body>
+</html>
